@@ -1,4 +1,4 @@
-# SuperPrinter | SuperPrinter Is like print(), but better
+# SuperPrinter | SuperPrinter Is like print(), but with added features
 # Copyright (C) 2021 ItsTheGuy
 #
 # This program is free software: you can redistribute it and/or modify
@@ -19,6 +19,6 @@ setup(
     name="SuperPrinter",
     packages=find_packages(include=["SuperPrinter"]),
     version="0.1",
-    description="SuperPrinter Is like print(), but better",
+    description="SuperPrinter Is like print(), but with added features",
     author="ItsTheGuy",
 )
