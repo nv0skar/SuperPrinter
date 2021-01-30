@@ -26,6 +26,7 @@ class SuperPrinter:
         self.log = log_object
         if self.log is not None:
             self.logtypes = {"info": self.log.info, "warning": self.log.warning, "error": self.log.error, "critical": self.log.critical}
+        self.colors = {"info": "\033[36m", "warning": "\033[94m", "error": "\033[33m", "critical": "\033[31m"}
     def __notify_on_system(self, caller, message):
         os.system("""osascript -e 'display notification "{}" with title "{}"'""".format(message, caller))
     def __tunnel(self, caller, message, path, level, time=True):
@@ -40,7 +41,7 @@ class SuperPrinter:
     def print(self, caller, message, show=True, end="\n", log=False, level="info", colors=True, time=True, post=False, postPath=None, notify=False, catch=False):
         date_string = "At: " + str(datetime.datetime.now())
         string = caller + ": " + message
-        colored_string = "\033[33m" + caller + ": " + "\033[0m" + message
+        colored_string = self.colors[level] + caller + ": " + "\033[0m" + message
         if time:
             string = string + " | " + date_string
             colored_string = colored_string + " | " + date_string

@@ -38,7 +38,7 @@ The above code will print a message, and also, the message will be saved in a lo
 - `show` : Set if you want to `print()`
 - `end` : Set the end of the `print()` (the default Is a new line)
 - `log` : Set If you want to save It into the logging file
-- `level` : Set the level of the log
+- `level` : Set the level of the log and the color of the caller, it can be: `info`, `warning`, `error`, `critical`
 - `colors` : Set If you want colors at `print()`
 - `time` : Set if you want to include the time, If you set `False` the time will not be included: In the log file, In the post request and in the terminal.
 - `post` : If you want to make a post request

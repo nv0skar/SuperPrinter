@@ -18,7 +18,7 @@ from setuptools import find_packages, setup
 setup(
     name="SuperPrinter",
     packages=find_packages(include=["SuperPrinter"]),
-    version="0.1",
+    version="0.2",
     description="SuperPrinter Is like print(), but with added features",
     author="ItsTheGuy",
 )
