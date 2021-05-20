@@ -1,51 +1,59 @@
-# SuperPrinter
-#### SuperPrinter Is like `print()`, but with added features 🚀
+# SuperPrinter 🌈
+#### SuperPrinter is pretty much like `print()`, but with superpowers 🚀
 
 ### Features
-- Prints with colors 🤖
-- Push notifications in macOS 🍎
-- Save into log file ⭐️
-- Make post requests **(Unstable)** **(Could make exceptions)** 🪄
+- Print with colors 🎨
+- Push notifications in macOS 📌
+- Save into a log file 📖
+- Make post requests 🙋‍♂️ | **⚠️ Not extensively tested**
 
 ## Quick Guide
 ```python
-import SuperPrinter # Import SuperPrinter
-sp = SuperPrinter.SuperPrinter() # Set the var with the object
-sp.print("Calendar", "Event added!") # Call print() method
+import superPrinter # Import superPrinter
+sp = superPrinter.printer() # Set the var with the object
+sp.sprint("Calendar", "Event added!", level=superPrinter.levels.info) # Call sprint() method
 ```
-**Output:** `Calendar: Event added! | At: 2021-01-28 20:17:54.108129`\
-As you can see In the output, It prints the caller followed by the message.\
-When we add a caller we can specify from which part of the code the text was printed, this could be useful to debug a big project with lots of functions.
+**Output:** `Calendar: Event added! | At: 2021-01-01 00:00:00.000` (As you can see In the output, it prints the caller followed by the message)
 ```python
-import SuperPrinter # Import SuperPrinter
-import logging # Import logging
-logging.basicConfig(filename='logging.log', level=logging.INFO) # Set logging basic config
-sp = SuperPrinter.SuperPrinter(log_object=logging) # Set the var with the object
-sp.print("Calendar", "Event added!") # Call print() method
+import superPrinter # Import SuperPrinter
+sp = superPrinter.printer(logFile="logging.log") # Set the var with the object
+sp.sprint("Calendar", "New event could not be added!", log=True, level=superPrinter.levels.error) # Call sprint() method
 ```
-The above code will print a message, and also, the message will be saved in a log file.
+The above code will print the message as an error, also the message will be saved in a log file.
 
+**Easy, doesn't it? 😀**
 
+## Usage
+1. `superPrinter.printer(logFile, url, port)`
+- `logFile` : Pass the logging file name **(Not required)**
+- `url` : Set the url for the post request **(Not required)**
+- `port` : Set the port for the post request **(Not required)**
 
-## API
-1. `SuperPrinter(self, log_object=None, url=None, port=None, api=None)`
-- `log_object` : Pass the logging object as showed in the *Quick Quide*
-- `url` : Pass the url for the post request
-- `port` : Set the port for the post request 
-2. `SuperPrinter.print(caller, message, show=True, end="\n", log=False, level="info", colors=True, time=True, post=False, postPath=None, notify=False, catch=False)`
+2. `superPrinter.printer.sprint(caller, message, end, level, log, show, colored, time, post, postPath, notify, catch)`
 - `caller` : Set the caller
 - `message` : Set the message
-- `show` : Set if you want to `print()`
-- `end` : Set the end of the `print()` (the default Is a new line)
-- `log` : Set If you want to save It into the logging file
-- `level` : Set the level of the log and the color of the caller, it can be: `info`, `warning`, `error`, `critical`
-- `colors` : Set If you want colors at `print()`
-- `time` : Set if you want to include the time, If you set `False` the time will not be included: In the log file, In the post request and in the terminal.
-- `post` : If you want to make a post request
-- `postPath` : Set the path of the post request
-- `notify` : If you want to push a notification (macOS)
-- `catch` : If you want to make SuperPrinter return a string
+- `show` : Set if you want to `print()` the string **(Not required)**
+- `end` : Set the end of the `print()` (The default Is a new line) **(Not required)**
+- `level` : Set the level of the log and the color of the caller **(Not required)**
+- `log` : Set If you want to save It into a logging file **(Not required)**
+- `colored` : Set if you want colors when `print()` **(Not required)**
+- `time` : Set if you want to include the time, if you set `False` the time will not be included: in the log file, in the post request and in when `print()` **(Not required)**
+- `post` : If you want to make a post request **(Not required)**
+- `postPath` : Set the path of the post request **(Not required)**
+- `notify` : If you want to push a notification (macOS) **(Not required)**
+- `catch` : If you want the message string returned **(Not required)**
+
+3. `superPrinter.levels`
+- info: `superPrinter.levels.info` (Level number: 0) 💁‍♂️
+- warning: `superPrinter.levels.warning` (Level number: 1) 🤷‍♂️
+- error: `superPrinter.levels.error` (Level number: 2) 🙅‍♂️
+- critical: `superPrinter.levels.critical` (Level number: 3) 🙇‍♂️
 
 ## Installation
-1. Firstly you have to copy `SuperPrinter` and import it.
-#### That's all! 🙂 
+That's a good question...
+1. Simply, copy `superPrinter` to your projects directory and import it.
+
+Or maybe you could...
+1. Generate a wheel and install it.
+
+**And it's done! 🎉**

@@ -14,13 +14,14 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-from setuptools import find_packages, setup
+from . import levels
 
-setup(
-    name="SuperPrinter",
-    packages=find_packages(include=["superPrinter"]),
-    # The version should be the same as __version__ in globals
-    version="0.3",
-    description="SuperPrinter is pretty much like print(), but with superpowers",
-    author="ItsTheGuy",
-)
+logTypes = {levels.info: "Info", levels.warning: "Warning", levels.error: "Error", levels.critical: "Critical"}
+
+class logger:
+    def __init__(self, fileName):
+        self.file = fileName
+
+    def write(self, message):
+        with open(self.file, "a") as log:
+            log.write(str("{}\n".format(message)))

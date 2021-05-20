@@ -14,13 +14,4 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-from setuptools import find_packages, setup
-
-setup(
-    name="SuperPrinter",
-    packages=find_packages(include=["superPrinter"]),
-    # The version should be the same as __version__ in globals
-    version="0.3",
-    description="SuperPrinter is pretty much like print(), but with superpowers",
-    author="ItsTheGuy",
-)
+__version__ = "0.3"
